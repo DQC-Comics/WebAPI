@@ -17,7 +17,7 @@
         }
 
         // GET: api/Heroes?query=text
-        public IEnumerable<ApiHeroLimited> GetHeroes(string query)
+        public IEnumerable<ApiHeroLimited> PostHeroes(ApiHeroSearch search)
         {
             // TODO: implement query logic
             return this.db.Heroes.ToList().Select(_ => _.ToApiHeroLimited());

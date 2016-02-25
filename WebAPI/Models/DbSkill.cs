@@ -2,7 +2,7 @@ namespace DQC.Comics.WebAPI.Models
 {
     using System.Collections.Generic;
 
-    public class Skill
+    public class DbSkill
     {
         public int Id { get; set; }
 
@@ -12,6 +12,6 @@ namespace DQC.Comics.WebAPI.Models
 
         public string Keywords { get; set; }
 
-        public virtual ICollection<Booking> Bookings { get; set; }
+        public virtual ICollection<DbBooking> Bookings { get; set; }
     }
 }

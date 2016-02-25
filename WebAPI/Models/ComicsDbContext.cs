@@ -9,10 +9,10 @@
         {
         }
 
-        public DbSet<Hero> Heroes { get; set; }
+        public DbSet<DbHero> Heroes { get; set; }
 
-        public DbSet<Skill> Skills { get; set; }
+        public DbSet<DbSkill> Skills { get; set; }
 
-        public DbSet<Booking> Bookings { get; set; }
+        public DbSet<DbBooking> Bookings { get; set; }
     }
 }

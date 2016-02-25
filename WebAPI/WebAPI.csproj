@@ -154,12 +154,16 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApiHero.cs" />
-    <Compile Include="Models\Booking.cs" />
+    <Compile Include="Models\ApiHeroSearch.cs" />
+    <Compile Include="Models\ApiHeroSkill.cs" />
+    <Compile Include="Models\ApiSkill.cs" />
+    <Compile Include="Models\DbBooking.cs" />
     <Compile Include="Models\ComicsDbContext.cs" />
-    <Compile Include="Models\Hero.cs" />
-    <Compile Include="Models\HeroSkill.cs" />
+    <Compile Include="Models\DbHero.cs" />
+    <Compile Include="Models\DbHeroSkill.cs" />
     <Compile Include="Models\Mappings\HeroExtensions.cs" />
-    <Compile Include="Models\Skill.cs" />
+    <Compile Include="Models\Mappings\SkillExtentions.cs" />
+    <Compile Include="Models\DbSkill.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

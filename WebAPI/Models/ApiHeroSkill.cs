@@ -1,12 +1,12 @@
-namespace DQC.Comics.WebAPI.Models
+﻿namespace DQC.Comics.WebAPI.Models
 {
-    public class HeroSkill
+    public class ApiHeroSkill
     {
         public int Id { get; set; }
 
-        public virtual Hero Hero { get; set; }
+        public string Name { get; set; }
 
-        public virtual Skill Skill { get; set; }
+        public string Description { get; set; }
 
         public double Level { get; set; }
 

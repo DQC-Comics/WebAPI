@@ -1,5 +1,7 @@
 ﻿namespace DQC.Comics.WebAPI.Models
 {
+    using System.Collections.Generic;
+
     public class ApiHeroLimited
     {
         public int Id { get; set; }
@@ -15,6 +17,8 @@
         public double Rating { get; set; }
 
         public double RatingCount { get; set; }
+
+        public IEnumerable<ApiHeroSkill> Skills { get; set; }
     }
 
     public class ApiHeroDetails : ApiHeroLimited

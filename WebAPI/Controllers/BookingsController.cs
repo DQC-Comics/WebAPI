@@ -13,16 +13,16 @@
         private ComicsDbContext db = new ComicsDbContext();
 
         // GET: api/Bookings
-        public IQueryable<Booking> GetBookings()
+        public IQueryable<DbBooking> GetBookings()
         {
             return this.db.Bookings;
         }
 
         // GET: api/Bookings/5
-        [ResponseType(typeof(Booking))]
+        [ResponseType(typeof(DbBooking))]
         public IHttpActionResult GetBooking(int id)
         {
-            Booking booking = this.db.Bookings.Find(id);
+            DbBooking booking = this.db.Bookings.Find(id);
             if (booking == null)
             {
                 return this.NotFound();
@@ -33,7 +33,7 @@
 
         // PUT: api/Bookings/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutBooking(int id, Booking booking)
+        public IHttpActionResult PutBooking(int id, DbBooking booking)
         {
             if (!this.ModelState.IsValid)
             {
@@ -67,8 +67,8 @@
         }
 
         // POST: api/Bookings
-        [ResponseType(typeof(Booking))]
-        public IHttpActionResult PostBooking(Booking booking)
+        [ResponseType(typeof(DbBooking))]
+        public IHttpActionResult PostBooking(DbBooking booking)
         {
             if (!this.ModelState.IsValid)
             {
@@ -82,10 +82,10 @@
         }
 
         // DELETE: api/Bookings/5
-        [ResponseType(typeof(Booking))]
+        [ResponseType(typeof(DbBooking))]
         public IHttpActionResult DeleteBooking(int id)
         {
-            Booking booking = this.db.Bookings.Find(id);
+            DbBooking booking = this.db.Bookings.Find(id);
             if (booking == null)
             {
                 return this.NotFound();

@@ -3,7 +3,7 @@ namespace DQC.Comics.WebAPI.Models
     using System;
     using System.Collections.Generic;
 
-    public class Booking
+    public class DbBooking
     {
         public int Id { get; set; }
 
@@ -12,12 +12,12 @@ namespace DQC.Comics.WebAPI.Models
         /// <summary>
         /// The heroes involved in the booking
         /// </summary>
-        public virtual ICollection<Hero> Heroes { get; set; }
+        public virtual ICollection<DbHero> Heroes { get; set; }
 
         /// <summary>
         /// The skills involved in the booking
         /// </summary>
-        public virtual ICollection<Skill> Skills { get; set; }
+        public virtual ICollection<DbSkill> Skills { get; set; }
 
         public double CustomerRating { get; set; }
 

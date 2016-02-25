@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
 
-    public class Hero
+    public class DbHero
     {
         public int Id { get; set; }
 
@@ -28,8 +28,8 @@
 
         public double RatingCount { get; set; }
 
-        public virtual ICollection<HeroSkill> Skills { get; set; }
+        public virtual ICollection<DbHeroSkill> Skills { get; set; }
         
-        public virtual ICollection<Booking> Bookings { get; set; }
+        public virtual ICollection<DbBooking> Bookings { get; set; }
     }
 }
