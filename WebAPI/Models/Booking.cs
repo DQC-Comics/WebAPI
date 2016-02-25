@@ -9,9 +9,15 @@ namespace DQC.Comics.WebAPI.Models
 
         public string Description { get; set; }
 
-        public IList<Hero> Heroes { get; set; }
+        /// <summary>
+        /// The heroes involved in the booking
+        /// </summary>
+        public virtual ICollection<Hero> Heroes { get; set; }
 
-        public IList<Skill> Skills { get; set; }
+        /// <summary>
+        /// The skills involved in the booking
+        /// </summary>
+        public virtual ICollection<Skill> Skills { get; set; }
 
         public double CustomerRating { get; set; }
 

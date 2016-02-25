@@ -28,6 +28,8 @@
 
         public double RatingCount { get; set; }
 
-        public IList<HeroSkill> Skills { get; set; }
+        public virtual ICollection<HeroSkill> Skills { get; set; }
+        
+        public virtual ICollection<Booking> Bookings { get; set; }
     }
 }
