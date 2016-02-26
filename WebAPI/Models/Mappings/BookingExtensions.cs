@@ -14,8 +14,9 @@
                 StartTime = booking.StartTime,
                 EndTime = booking.EndTime,
                 Location = booking.Location,
+                City = booking.City,
+                Country = booking.Country,
                 CustomerRating = booking.CustomerRating,
-                CustomerRatingCount = booking.CustomerRatingCount,
                 Status = booking.Status,
                 Heroes = booking.Heroes?.Select(HeroExtensions.ToApiHeroBasic) ?? new ApiHeroBasic[0]
             };
@@ -31,8 +32,9 @@
                 StartTime = booking.StartTime,
                 EndTime = booking.EndTime,
                 Location = booking.Location,
+                City = booking.City,
+                Country = booking.Country,
                 CustomerRating = booking.CustomerRating,
-                CustomerRatingCount = booking.CustomerRatingCount,
                 Status = booking.Status,
                 Heroes = new DbHero[0]
             };

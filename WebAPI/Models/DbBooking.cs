@@ -20,11 +20,7 @@ namespace DQC.Comics.WebAPI.Models
 
         public double CustomerRating { get; set; }
 
-        public double CustomerRatingCount { get; set; }
-
         public double HeroRating { get; set; }
-
-        public double CustomerHeroRating { get; set; }
 
         public double TotalDebitPrice { get; set; }
 
@@ -45,6 +41,10 @@ namespace DQC.Comics.WebAPI.Models
         public DateTime EndTime { get; set; }
 
         public string Location { get; set; }
+
+        public string City { get; set; }
+
+        public string Country { get; set; }
 
         public string Status { get; set; }
     }

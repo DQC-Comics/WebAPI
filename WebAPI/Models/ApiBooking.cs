@@ -17,9 +17,11 @@
 
         public string Location { get; set; }
 
-        public double CustomerRating { get; set; }
+        public string City { get; set; }
 
-        public double CustomerRatingCount { get; set; }
+        public string Country { get; set; }
+
+        public double CustomerRating { get; set; }
 
         public string Status { get; set; }
 
