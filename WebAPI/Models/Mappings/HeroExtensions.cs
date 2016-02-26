@@ -9,6 +9,7 @@
             return new ApiHeroBasic
             {
                 Id = hero.Id,
+                AzureId = hero.AzureId,
                 Name = hero.Name
             };
         }
@@ -18,6 +19,7 @@
             return new ApiHeroLimited
             {
                 Id = hero.Id,
+                AzureId = hero.AzureId,
                 Name = hero.Name,
                 Description = hero.Description,
                 ImageUrl = hero.ImageUrl,
