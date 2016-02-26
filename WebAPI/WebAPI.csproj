@@ -178,6 +178,7 @@
     <Compile Include="Hubs\BookingsHub.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApiBooking.cs" />
+    <Compile Include="Models\ApiBookingRating.cs" />
     <Compile Include="Models\ApiHero.cs" />
     <Compile Include="Models\ApiHeroSearch.cs" />
     <Compile Include="Models\ApiHeroSkill.cs" />

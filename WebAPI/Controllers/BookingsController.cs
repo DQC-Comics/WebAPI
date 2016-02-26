@@ -54,23 +54,7 @@
             }
 
             persistedBooking.Status = booking.Status;
-            this.db.Entry(persistedBooking).State = EntityState.Modified;
-
-            try
-            {
-                this.db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!this.BookingExists(id))
-                {
-                    return this.NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            this.db.SaveChanges();
 
             this.Hub.Clients.All.bookingUpdated(persistedBooking.ToApiBooking());
             return this.StatusCode(HttpStatusCode.NoContent);
@@ -108,6 +92,24 @@
             this.db.SaveChanges();
 
             return this.Ok(booking);
+        }
+
+        // POST: api/Bookings
+        [ResponseType(typeof(ApiBooking))]
+        [Route("api/Bookings/{id}/ratings")]
+        public IHttpActionResult PostBookingRatings(int id, ApiBookingRating rating)
+        {
+            var persistedBooking = this.db.Bookings.Find(id);
+            if (persistedBooking == null)
+            {
+                return this.NotFound();
+            }
+
+            persistedBooking.CustomerRating = rating.Rating;
+            this.db.SaveChanges();
+
+            this.Hub.Clients.All.bookingUpdated(persistedBooking.ToApiBooking());
+            return this.Ok(persistedBooking);
         }
 
         protected override void Dispose(bool disposing)
