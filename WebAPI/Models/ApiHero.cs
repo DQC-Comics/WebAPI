@@ -2,12 +2,15 @@
 {
     using System.Collections.Generic;
 
-    public class ApiHeroLimited
+    public class ApiHeroBasic
     {
         public int Id { get; set; }
 
         public string Name { get; set; }
+    }
 
+    public class ApiHeroLimited : ApiHeroBasic
+    {
         public string Description { get; set; }
 
         public string ImageUrl { get; set; }

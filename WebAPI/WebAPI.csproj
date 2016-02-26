@@ -153,6 +153,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ApiBooking.cs" />
     <Compile Include="Models\ApiHero.cs" />
     <Compile Include="Models\ApiHeroSearch.cs" />
     <Compile Include="Models\ApiHeroSkill.cs" />
@@ -161,6 +162,7 @@
     <Compile Include="Models\ComicsDbContext.cs" />
     <Compile Include="Models\DbHero.cs" />
     <Compile Include="Models\DbHeroSkill.cs" />
+    <Compile Include="Models\Mappings\BookingExtensions.cs" />
     <Compile Include="Models\Mappings\HeroExtensions.cs" />
     <Compile Include="Models\Mappings\SkillExtentions.cs" />
     <Compile Include="Models\DbSkill.cs" />

@@ -4,6 +4,15 @@
 
     public static class HeroExtensions
     {
+        public static ApiHeroBasic ToApiHeroBasic(this DbHero hero)
+        {
+            return new ApiHeroBasic
+            {
+                Id = hero.Id,
+                Name = hero.Name
+            };
+        }
+
         public static ApiHeroLimited ToApiHeroLimited(this DbHero hero)
         {
             return new ApiHeroLimited

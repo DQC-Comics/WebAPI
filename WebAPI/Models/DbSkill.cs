@@ -1,7 +1,9 @@
 namespace DQC.Comics.WebAPI.Models
 {
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations.Schema;
 
+    [Table("Skills")]
     public class DbSkill
     {
         public int Id { get; set; }
