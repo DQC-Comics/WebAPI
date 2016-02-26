@@ -1,5 +1,6 @@
 ﻿namespace DQC.Comics.WebAPI.Controllers
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Http;
@@ -20,7 +21,8 @@
         public IEnumerable<ApiHeroLimited> PostHeroes(ApiHeroSearch search)
         {
             // TODO: implement query logic
-            return this.db.Heroes.ToList().Select(_ => _.ToApiHeroLimited());
+            var rnd = new Random();
+            return this.db.Heroes.ToList().Select(_ => _.ToApiHeroLimited()).OrderByDescending(_ => rnd.Next());
         }
 
         // GET: api/Heroes/5
