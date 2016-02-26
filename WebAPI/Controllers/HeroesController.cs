@@ -22,7 +22,8 @@
         {
             // TODO: implement query logic
             var rnd = new Random();
-            return this.db.Heroes.ToList().Select(HeroExtensions.ToApiHeroLimited).OrderByDescending(_ => rnd.Next());
+            var heroes = this.db.Heroes.ToList().Select(HeroExtensions.ToApiHeroLimited).OrderByDescending(_ => rnd.Next()).ToList();
+            return heroes.Take(rnd.Next(heroes.Count + 1));
         }
 
         // GET: api/Heroes/5
