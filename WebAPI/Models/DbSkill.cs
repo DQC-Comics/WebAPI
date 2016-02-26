@@ -13,7 +13,5 @@ namespace DQC.Comics.WebAPI.Models
         public string Description { get; set; }
 
         public string Keywords { get; set; }
-
-        public virtual ICollection<DbBooking> Bookings { get; set; }
     }
 }

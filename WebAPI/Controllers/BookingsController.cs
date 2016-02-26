@@ -86,7 +86,7 @@
             }
 
             var persistedBooking = booking.ToDbBooking();
-            persistedBooking.Heroes = booking.Heroes.Select(_ => this.db.Heroes.Find(_.Id)).ToList();
+            persistedBooking.Heroes = booking.Heroes.Select(_ => this.db.Heroes.Find(_.Id)).Where(_ => _ != null).ToList();
             this.db.Bookings.Add(persistedBooking);
             this.db.SaveChanges();
 

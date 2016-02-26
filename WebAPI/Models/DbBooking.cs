@@ -18,11 +18,6 @@ namespace DQC.Comics.WebAPI.Models
         /// </summary>
         public virtual ICollection<DbHero> Heroes { get; set; }
 
-        /// <summary>
-        /// The skills involved in the booking
-        /// </summary>
-        public virtual ICollection<DbSkill> Skills { get; set; }
-
         public double CustomerRating { get; set; }
 
         public double CustomerRatingCount { get; set; }
