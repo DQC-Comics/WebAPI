@@ -17,7 +17,7 @@
         // GET: api/Bookings
         public IEnumerable<ApiBooking> GetBookings()
         {
-            return this.db.Bookings.ToList().Select(_ => _.ToApiBooking());
+            return this.db.Bookings.ToList().Select(BookingExtensions.ToApiBooking);
         }
 
         // GET: api/Bookings/5
@@ -47,7 +47,14 @@
                 return this.BadRequest();
             }
 
-            this.db.Entry(booking).State = EntityState.Modified;
+            var persistedBooking = this.db.Bookings.Find(id);
+            if (persistedBooking == null)
+            {
+                return this.NotFound();
+            }
+
+            persistedBooking.Status = booking.Status;
+            this.db.Entry(persistedBooking).State = EntityState.Modified;
 
             try
             {
@@ -65,7 +72,7 @@
                 }
             }
 
-            this.Hub.Clients.All.bookingUpdated(booking);
+            this.Hub.Clients.All.bookingUpdated(persistedBooking.ToApiBooking());
             return this.StatusCode(HttpStatusCode.NoContent);
         }
 
@@ -78,12 +85,12 @@
                 return this.BadRequest(this.ModelState);
             }
 
-            var presistedBooking = booking.ToDbBooking();
-            this.db.Bookings.Add(presistedBooking);
+            var persistedBooking = booking.ToDbBooking();
+            this.db.Bookings.Add(persistedBooking);
             this.db.SaveChanges();
 
-            this.Hub.Clients.All.bookingCreated(presistedBooking.ToApiBooking());
-            return this.CreatedAtRoute("DefaultApi", new { id = presistedBooking.Id }, presistedBooking.ToApiBooking());
+            this.Hub.Clients.All.bookingCreated(persistedBooking.ToApiBooking());
+            return this.CreatedAtRoute("DefaultApi", new { id = persistedBooking.Id }, persistedBooking.ToApiBooking());
         }
 
         // DELETE: api/Bookings/5

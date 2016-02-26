@@ -7,6 +7,8 @@
     {
         public int Id { get; set; }
 
+        public string CustomerId { get; set; }
+
         public string Description { get; set; }
 
         public DateTime StartTime { get; set; }
@@ -19,6 +21,8 @@
 
         public double CustomerRatingCount { get; set; }
 
-        public ICollection<ApiHeroBasic> Heroes { get; set; }
+        public string Status { get; set; }
+
+        public IEnumerable<ApiHeroBasic> Heroes { get; set; }
     }
 }

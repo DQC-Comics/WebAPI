@@ -1,5 +1,7 @@
 ﻿namespace DQC.Comics.WebAPI.Models
 {
+    using System.Linq;
+
     public static class BookingExtensions
     {
         public static ApiBooking ToApiBooking(this DbBooking booking)
@@ -7,7 +9,15 @@
             return new ApiBooking
             {
                 Id = booking.Id,
-                Description = booking.Description
+                CustomerId = booking.CustomerId,
+                Description = booking.Description,
+                StartTime = booking.StartTime,
+                EndTime = booking.EndTime,
+                Location = booking.Location,
+                CustomerRating = booking.CustomerRating,
+                CustomerRatingCount = booking.CustomerRatingCount,
+                Status = booking.Status,
+                Heroes = booking.Heroes?.Select(HeroExtensions.ToApiHeroBasic) ?? new ApiHeroBasic[0]
             };
         }
 
@@ -15,7 +25,16 @@
         {
             return new DbBooking
             {
-                Description = booking.Description
+                Id = booking.Id,
+                CustomerId = booking.CustomerId,
+                Description = booking.Description,
+                StartTime = booking.StartTime,
+                EndTime = booking.EndTime,
+                Location = booking.Location,
+                CustomerRating = booking.CustomerRating,
+                CustomerRatingCount = booking.CustomerRatingCount,
+                Status = booking.Status,
+                Heroes = new DbHero[0]
             };
         }
     }

@@ -13,7 +13,7 @@
         // GET: api/Skills
         public IEnumerable<ApiSkill> GetSkills()
         {
-            return this.db.Skills.ToList().Select(_ => _.ToApiSkill());
+            return this.db.Skills.ToList().Select(SkillExtentions.ToApiSkill);
         }
 
         // GET: api/Skills/5

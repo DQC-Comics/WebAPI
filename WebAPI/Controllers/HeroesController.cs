@@ -14,15 +14,15 @@
         // GET: api/Heroes
         public IEnumerable<ApiHeroLimited> GetHeroes()
         {
-            return this.db.Heroes.ToList().Select(_ => _.ToApiHeroLimited());
+            return this.db.Heroes.ToList().Select(HeroExtensions.ToApiHeroLimited);
         }
 
-        // GET: api/Heroes?query=text
+        // POST: api/Heroes, used for search not to create a hero
         public IEnumerable<ApiHeroLimited> PostHeroes(ApiHeroSearch search)
         {
             // TODO: implement query logic
             var rnd = new Random();
-            return this.db.Heroes.ToList().Select(_ => _.ToApiHeroLimited()).OrderByDescending(_ => rnd.Next());
+            return this.db.Heroes.ToList().Select(HeroExtensions.ToApiHeroLimited).OrderByDescending(_ => rnd.Next());
         }
 
         // GET: api/Heroes/5

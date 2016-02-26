@@ -9,6 +9,8 @@ namespace DQC.Comics.WebAPI.Models
     {
         public int Id { get; set; }
 
+        public string CustomerId { get; set; }
+
         public string Description { get; set; }
 
         /// <summary>
@@ -48,5 +50,7 @@ namespace DQC.Comics.WebAPI.Models
         public DateTime EndTime { get; set; }
 
         public string Location { get; set; }
+
+        public string Status { get; set; }
     }
 }
