@@ -7,9 +7,10 @@
     using System.Net;
     using System.Web.Http;
     using System.Web.Http.Description;
+    using DQC.Comics.WebAPI.Hubs;
     using DQC.Comics.WebAPI.Models;
 
-    public class BookingsController : ApiController
+    public class BookingsController : ApiControllerWithHub<BookingsHub>
     {
         private ComicsDbContext db = new ComicsDbContext();
 
@@ -64,6 +65,7 @@
                 }
             }
 
+            this.Hub.Clients.All.bookingUpdated(booking);
             return this.StatusCode(HttpStatusCode.NoContent);
         }
 
@@ -80,6 +82,7 @@
             this.db.Bookings.Add(presistedBooking);
             this.db.SaveChanges();
 
+            this.Hub.Clients.All.bookingCreated(presistedBooking.ToApiBooking());
             return this.CreatedAtRoute("DefaultApi", new { id = presistedBooking.Id }, presistedBooking.ToApiBooking());
         }
 

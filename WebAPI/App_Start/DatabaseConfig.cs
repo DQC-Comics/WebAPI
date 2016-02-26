@@ -1,17 +1,14 @@
 ﻿namespace DQC.Comics.WebAPI
 {
     using System.Data.Entity;
-    using System.Web;
-    using System.Web.Http;
     using DQC.Comics.WebAPI.Migrations;
     using DQC.Comics.WebAPI.Models;
 
-    public class WebApiApplication : HttpApplication
+    public static class DatabaseConfig
     {
-        protected void Application_Start()
+        public static void Configuration()
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<ComicsDbContext, Configuration>());
-            GlobalConfiguration.Configure(WebApiConfig.Register);
         }
     }
 }
