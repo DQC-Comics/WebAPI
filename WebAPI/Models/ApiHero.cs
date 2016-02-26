@@ -14,6 +14,11 @@
 
         public string Color { get; set; }
 
+        /// <summary>
+        /// Customer cost per hour
+        /// </summary>
+        public double DebitPrice { get; set; }
+
         public double Rating { get; set; }
 
         public double RatingCount { get; set; }
@@ -23,11 +28,6 @@
 
     public class ApiHeroDetails : ApiHeroLimited
     {
-        /// <summary>
-        /// Customer cost per hour
-        /// </summary>
-        public double DebitPrice { get; set; }
-
         /// <summary>
         /// Internal cost per hour
         /// </summary>

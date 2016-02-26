@@ -13,6 +13,7 @@
                 Description = hero.Description,
                 ImageUrl = hero.ImageUrl,
                 Color = hero.Color,
+                DebitPrice = hero.DebitPrice,
                 Rating = hero.Rating,
                 RatingCount = hero.RatingCount,
                 Skills = hero.Skills?.Select(ToApiHeroSkill) ?? new ApiHeroSkill[0]
