@@ -9,7 +9,7 @@
         {
             app.Map("/signalr", map =>
             {
-                map.UseCors(CorsOptions.AllowAll);
+                //map.UseCors(CorsOptions.AllowAll);
                 map.RunSignalR();
             });
         }
