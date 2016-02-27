@@ -1,5 +1,6 @@
 ﻿namespace DQC.Comics.WebAPI.Controllers
 {
+    using System;
     using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
@@ -71,6 +72,16 @@
 
             var persistedBooking = booking.ToDbBooking();
             persistedBooking.Heroes = booking.Heroes.Select(_ => this.db.Heroes.Find(_.Id)).Where(_ => _ != null).ToList();
+
+            var hero = persistedBooking.Heroes.FirstOrDefault();
+            if (hero != null)
+            {
+                persistedBooking.DebitHours = Math.Max((persistedBooking.EndTime - persistedBooking.StartTime).TotalHours, 0);
+                persistedBooking.ActualHours = persistedBooking.DebitHours;
+                persistedBooking.TotalDebitPrice = persistedBooking.DebitHours * hero.DebitPrice;
+                persistedBooking.TotalInternalPrice = persistedBooking.ActualHours * hero.InternalPrice;
+            }
+
             this.db.Bookings.Add(persistedBooking);
             this.db.SaveChanges();
 
